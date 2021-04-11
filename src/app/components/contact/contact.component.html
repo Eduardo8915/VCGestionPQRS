@@ -1,0 +1,42 @@
+<section class="container my-5">
+    <article class="p-2 mb-3 bg-primary text-white font-weight-bold"><span>CONTÁCTENOS</span></article>
+    <article class="card p-4">
+        <form [formGroup]="form">
+            <section class="mb-3">
+                <label for="txtName" class="form-label">Ingresa tu nombre</label>
+                <input type="text" class="form-control" id="txtName" autofocus formControlName="name">
+            </section>
+            <section class="mb-3">
+                <label for="txtEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="txtEmail" formControlName="email">
+            </section>
+            <section class="mb-3">
+                <label for="txtPhoneNumber" class="form-label">Celular o WhatsApp</label>
+                <input type="number" class="form-control" id="txtPhoneNumber" formControlName="phoneNumber">
+            </section>
+            <section class="mb-3">
+                <label for="txtMessage" class="form-label">Cuéntanos un poco de tu proyect</label>
+                <textarea class="form-control" id="txtMessage" rows="3" formControlName="message"></textarea>
+            </section>
+            <section class="mb-3 form-group" *ngIf="isError">
+                <article class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{error}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </article>
+            </section>
+            <section class="mb-3 form-group" *ngIf="isSuccess">
+                <article class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{error}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </article>
+            </section>
+            <button class="btn btn-primary" [disabled]="!form.valid" (click)="sendMessage()">
+                ENVIAR MENSAJE
+            </button>
+        </form>
+    </article>
+</section>

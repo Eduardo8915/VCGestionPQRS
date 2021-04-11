@@ -1,0 +1,46 @@
+<section class="container my-5">
+    <article class="p-2 mb-3 bg-primary text-white font-weight-bold"><span>Nuevo PQRS</span></article>
+    <article class="card p-4">
+        <form [formGroup]="form">
+            <section class="mb-3">
+                <label for="lblName" class="form-label lbltitulos">Usuario</label>
+                <p class="nav-user" id="loginUser">{{user.email}}</p>
+            </section>
+            <section class="mb-3 form-group">
+                <label for="txtAsunto" class="form-label">Asunto</label>
+                <input type="text" class="form-control" id="txtAsunto" autofocus formControlName="asunto">
+            </section>
+            <section class="mb-3 form-group">
+                <label for="cmbTipoPeticion" class="form-label lbltitulos">Tipo Petición</label>
+                <select id="cmbTipoPeticion" class="form-control" formControlName="tipoPeticion">
+                    <option value="Soporte" selected>Soporte</option>
+                    <option value="NuevoDesarrollo">Nuevo Desarrollo</option>
+                    <option value="Capacitacion">Capacitación</option>
+                </select>
+            </section>
+            <section class="mb-3 form-group">
+                <label for="txtMessage" class="form-label lbltitulos">Cuéntanos sobre tu Petición</label>
+                <textarea class="form-control" id="txtMessage" rows="3" formControlName="message" formControlName="message"></textarea>
+            </section>
+            <section class="mb-3 form-group" *ngIf="isError">
+                <article class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{error}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </article>
+            </section>
+            <section class="mb-3 form-group" *ngIf="isSuccess">
+                <article class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{error}}
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </article>
+            </section>
+            <button class="btn btn-primary" [disabled]="!form.valid" (click)="sendPeticion()">
+                ENVIAR PETICIÓN
+            </button>
+        </form>
+    </article>
+</section>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-toggleable-sm">
+    <a class="navbar-brand" href="#">
+        <img class="logo-vc img-fluid" src="assets/icons/LogoVC1.png" alt="logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icon ion-md-menu"></span>
+</button>
+    <section class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto text-center ml-4">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item" [routerLink]="['/about-us']">
+                <a class="nav-link">Quienes somos</a>
+            </li>
+            <li class="nav-item" [routerLink]="['/contact-us']">
+                <a class="nav-link">Contáctenos</a>
+            </li>
+            <li class="nav-item" [routerLink]="['/NewPQRS']">
+                <a class="nav-link">PQRS</a>
+            </li>
+            <li class="nav-item" [routerLink]="['/ListPQRS']">
+                <a class="nav-link">Ver PQRS</a>
+            </li>
+        </ul>
+        <article  class="login d-flex flex-row justify-content-center mt-5">
+            <section class="icon-details-user" *ngIf="isLoggedIn">
+                <a id="login1" class="nav-link" href="#">
+                    <img src="assets/icons/imgUser.svg" alt="imgUser" width="35px">
+                </a>
+                <p class="nav-user" id="loginUser">{{user.email}}</p>
+            </section>
+            <app-icon-details *ngFor="let iconDetail of iconDetails" [source]="iconDetail.source" [link]="iconDetail.link" [label]="iconDetail.label" (click)="iconDetail.label === 'Logout' ? logout() : null"></app-icon-details>
+
+        </article>
+
+    </section>
+</nav>
+

@@ -1,0 +1,19 @@
+<article class="p-2 mb-3 bg-primary text-white font-weight-bold">
+    <span>Lista de PQRS</span>
+</article>
+<table *ngIf="pqrs.length > 0" class="table table table-striped table-hover table-sm">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Usuario</th>
+        <th scope="col">Tipo Petición</th>
+        <th scope="col">Asunto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pqrsAux of pqrs">
+        <td>{{pqrsAux.usuario}}</td>
+        <td>{{pqrsAux.tipo}}</td>
+        <td>{{pqrsAux.asunto}}</td>
+      </tr>
+    </tbody>
+  </table>

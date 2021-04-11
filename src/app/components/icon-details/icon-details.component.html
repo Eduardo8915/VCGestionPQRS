@@ -1,0 +1,6 @@
+<section class="icon-details" (click)="emitEvent(label)" *ngIf="((label === 'Login') && !isLoggedIn) || ((label === 'Logout') && isLoggedIn)">
+    <a id="login1" class="nav-link" href="#" [routerLink]="link">
+        <img [src]="source" alt="user" width="35px">
+    </a>
+    <p id="text">{{label}}</p>
+</section>
